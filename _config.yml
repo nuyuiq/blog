@@ -3,17 +3,17 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Hexo
-subtitle: ''
-description: ''
-keywords:
-author: John Doe
-language: en
-timezone: ''
+title: '建基的博客博客空间 @_@'
+subtitle: '人生匆匆 脚下留情 留下点什么 证明来过吧'
+description: '随便写写 记录记录'
+keywords: nuyuiq,Hexo,Blog
+author: nuyuiq
+language: zh-CN
+timezone: 'Asia/Shanghai'
 
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
-url: http://example.com
+url: https://nuyuiq.github.io/blog
 permalink: :year/:month/:day/:title/
 permalink_defaults:
 pretty_urls:
@@ -31,7 +31,7 @@ i18n_dir: :lang
 skip_render:
 
 # Writing
-new_post_name: :title.md # File name of new posts
+new_post_name: :year_:month_:day_:title.md # File name of new posts
 default_layout: post
 titlecase: false # Transform title into titlecase
 external_link:
