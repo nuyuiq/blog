@@ -1,21 +1,22 @@
 # Header
-navname: Bentham's Blog
+navname: 建基. Blog
 
 # navigatior items
 nav:
-  Posts: /archives
-  Categories: /category
-  Tags: /tag
-  About: /about
+  归档: /archives
+  分类: /category
+  标签: /tag
+  关于: /about
 
 # favicon
 favicon: /favicon.ico
 
 # Profile
-nickname: Jeremy Bentham
+nickname: 建基
 
 ### this variable is MarkDown form.
-description: Lorem ipsum dolor sit amet, **consectetur adipiscing elit.** <br>Fusce eget urna vitae velit *eleifend interdum at ac* nisi.
+description: 20年后，你后悔的是那些没做过的事情。<br>所以解开缆绳吧，从避风港启航，让信风推着你的帆。探索。梦想。发现。<br>*"Twenty years from now you will be more disappointed by the things that<br>you didn't do than by the ones you did do. <br>So throw off the bowlines. Sail away from the safe harbor.<br>Catch the trade winds in your sails. Explore. Dream. Discover."*<br>------《游戏 Minecraft》
+
 avatar: /image/avatar.jpeg
 
 # main menu navigation
@@ -33,7 +34,7 @@ links:
   # Gallery:
   # RSS:
   # AliPay:
-  ZhiHu: https://www.zhihu.com/people/sirice
+  # ZhiHu:
   # LinkedIn:
   # FaceBook:
   # Twitter:
@@ -43,13 +44,13 @@ links:
   # Sketch:
   # Gitlab:
   # Dribbble:
-  Instagram:
-  Reddit:
+  # Instagram:
+  # Reddit:
   # YouTube:
   # QQ:
   # Weibo:
   # WeChat:
-  Github: https://github.com/Siricee
+  Github: https://github.com/nuyuiq
 
 # how links show: you have 2 choice--text or icon.
 links_text_enable: false
@@ -68,9 +69,9 @@ post_copyright_enable: true
 post_copyright_author_enable: true
 post_copyright_permalink_enable: true
 post_copyright_license_enable: true
-post_copyright_license_text: Copyright (c) 2019 <a href="http://creativecommons.org/licenses/by-nc/4.0/">CC-BY-NC-4.0</a> LICENSE
-post_copyright_slogan_enable: true
-post_copyright_slogan_text: Do you believe in <strong>DESTINY</strong>?
+post_copyright_license_text: Copyright (c) 2023 <a href="http://creativecommons.org/licenses/by-nc/4.0/">CC-BY-NC-4.0</a> LICENSE
+post_copyright_slogan_enable: false
+post_copyright_slogan_text:
 ## toc
 post_toc_enable: true
 
