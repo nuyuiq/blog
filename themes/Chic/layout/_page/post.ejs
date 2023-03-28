@@ -11,7 +11,7 @@
             <% if(theme.post_meta_enable){ %>
                 <div class="post-meta">
                     <% if(theme.post_author_enable && config.author){ %>
-                        <%= __('author') %>: <a itemprop="author" rel="author" href="<%- config.root %>"><%- config.author %></a>
+                        <%= __('author') %>: <a itemprop="author" rel="author" href="<%- url_for('/') %>"><%- config.author %></a>
                     <% } %>
 
                     <% if(page.date && theme.post_date_enable){ %>
@@ -79,7 +79,7 @@
             <div>
                 <a href="javascript:window.history.back();"><%= __('back') %></a>
                 <span>· </span>
-                <a href="<%- config.root %>"><%= __('home') %></a>
+                <a href="<%- url_for('/') %>"><%= __('home') %></a>
             </div>
         </section>
         <section class="post-nav">
