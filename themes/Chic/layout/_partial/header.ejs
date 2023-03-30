@@ -1,7 +1,7 @@
 <header>
     <nav class="navbar">
         <div class="container">
-            <div class="navbar-header header-logo"><a href="<%- config.root %>"><%= theme.navname %></a></div>
+            <div class="navbar-header header-logo"><a href="<%- url_for('/') %>"><%= theme.navname %></a></div>
             <div class="menu navbar-right">
                 <% for (var i in theme.nav){ %>
                     <a class="menu-item" href="<%- url_for(theme.nav[i]) %>"><%= i %></a>
@@ -17,7 +17,7 @@
         <div class="container">
             <div class="navbar-header">
                 <div>
-                    <a href="<%- config.root %>"><%= theme.navname %></a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                    <a href="<%- url_for('/') %>"><%= theme.navname %></a><a id="mobile-toggle-theme">·&nbsp;Light</a>
                 </div>
                 <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
             </div>
