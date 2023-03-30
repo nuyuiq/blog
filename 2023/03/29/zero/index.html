@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="nuyuiq">
+
+
+    <meta name="subtitle" content="人生匆匆 脚下留情 留下点什么 证明来过吧">
+
+
+    <meta name="description" content="随便写写 记录记录">
+
+
+    <meta name="keywords" content="nuyuiq,Hexo,Blog">
+
+
+<title>博客搭建记录 | 建基的博客博客空间 @_@</title>
+
+
+
+    <link rel="icon" href="/blog/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/blog/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/blog/js/script.js"></script>
+    
+    <script src="/blog/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+<body>
+    <script>
+        // this function is used to check current theme before page loaded.
+        (() => {
+            const currentTheme = window.localStorage && window.localStorage.getItem('theme') || '';
+            const isDark = currentTheme === 'dark';
+            const pagebody = document.getElementsByTagName('body')[0]
+            if (isDark) {
+                pagebody.classList.add('dark-theme');
+                // mobile
+                let doc = document.getElementById("mobile-toggle-theme")
+                if (doc) doc.innerText = "· Dark"
+            } else {
+                pagebody.classList.remove('dark-theme');
+                // mobile
+                let doc = document.getElementById("mobile-toggle-theme")
+                if (doc) doc.innerText = "· Light"
+            }
+        })();
+    </script>
+
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/blog/">建基. Blog</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/blog/archives">归档</a>
+                
+                    <a class="menu-item" href="/blog/category">分类</a>
+                
+                    <a class="menu-item" href="/blog/tag">标签</a>
+                
+                    <a class="menu-item" href="/blog/about">关于</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/blog/">建基. Blog</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/blog/archives">归档</a>
+                
+                    <a class="menu-item" href="/blog/category">分类</a>
+                
+                    <a class="menu-item" href="/blog/tag">标签</a>
+                
+                    <a class="menu-item" href="/blog/about">关于</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+            <div class="main">
+                <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">全部展开</a>
+        <a onclick="go_top()">回到顶部</a>
+        <a onclick="go_bottom()">下到底部</a>
+    </div>
+</div>
+
+<script>
+    var tocbot_timer;
+    var DEPTH_MAX = 6; // 为 6 时展开所有
+    var tocbot_default_config = {
+        tocSelector: '.tocbot-list',
+        contentSelector: '.post-content',
+        headingSelector: 'h1, h2, h3, h4, h5',
+        orderedList: false,
+        scrollSmooth: true,
+        onClick: extend_click,
+    };
+
+    function extend_click() {
+        clearTimeout(tocbot_timer);
+        tocbot_timer = setTimeout(function() {
+            tocbot.refresh(obj_merge(tocbot_default_config, {
+                hasInnerContainers: true
+            }));
+        }, 420); // 这个值是由 tocbot 源码里定义的 scrollSmoothDuration 得来的
+    }
+
+    document.ready(function() {
+        tocbot.init(obj_merge(tocbot_default_config, {
+            collapseDepth: 1
+        }));
+    });
+
+    function expand_toc() {
+        var b = document.querySelector('.tocbot-toc-expand');
+        var expanded = b.getAttribute('data-expanded');
+        expanded ? b.removeAttribute('data-expanded') : b.setAttribute('data-expanded', true);
+        tocbot.refresh(obj_merge(tocbot_default_config, {
+            collapseDepth: expanded ? 1 : DEPTH_MAX
+        }));
+        b.innerText = expanded ? "全部展开" : "全部收缩";
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+    function obj_merge(target, source) {
+        for (var item in source) {
+            if (source.hasOwnProperty(item)) {
+                target[item] = source[item];
+            }
+        }
+        return target;
+    }
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">博客搭建记录</h1>
+            
+                <div class="post-meta">
+                    
+                        作者: <a itemprop="author" rel="author" href="/blog/">nuyuiq</a>
+                    
+
+                    
+                        <span class="post-time">
+                            日期时间: <a href="#">三月 29, 2023&nbsp;&nbsp;12:58:10</a>
+                        </span>
+                    
+                    
+                        <span class="post-category">
+                            分类:
+                            
+                                <a href="/blog/categories/DevLog/">DevLog</a>
+                            
+                        </span>
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <p>因为之前有搭建过，所以这次搭建过程中并没有遇到莫名其妙的意外情况，不需要花时间去深入了解和解决问题。</p>
+<p>其实，现在的网络技术环境，从某些方面来说，也快变成“消费”市场了，比如搭建一个个人博客，先挑选一个博客框架，选好主题，然后在本地用各种 node 衍生工具初始化配置、输入内容，就可加工成美味的菜肴，轻奢点的消费者，还可以在 GitHub 上建立对应的仓库，配置 Actions，在个人的云主机上实现自动化上线部署。</p>
+<p>在这个过程中，不再需要花费什么力气，只需要知道有什么，用什么就行，甚至不知道有什么，别人也会通过各种途径手把手教。从有想法，到把它变现，简直是太容易了。</p>
+<p>以下是建设本站的过程，是结合个人的使用环境和习惯，后期所做的记录，仅供借鉴，不作参考指导。</p>
+<h1>技术栈</h1>
+<table>
+<thead>
+<tr>
+<th>材料</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Hexo<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup> &amp; hexo-theme-Chic<sup class="footnote-ref"><a href="#fn2" id="fnref2">[2]</a></sup></td>
+<td>Hexo 框架 和 hexo-theme-Chic 主题，足够的轻量简约风</td>
+</tr>
+<tr>
+<td>docker + node</td>
+<td>docker 容器管理和 node 的最新发行版镜像</td>
+</tr>
+<tr>
+<td>Typora<sup class="footnote-ref"><a href="#fn3" id="fnref3">[3]</a></sup> 或普通文本编辑工具</td>
+<td>参数配置和页面编写</td>
+</tr>
+<tr>
+<td>Github + git</td>
+<td>代码仓库管理和 GitHubPages 代理部署网站，git 为本地版本控制软件</td>
+</tr>
+</tbody>
+</table>
+<h1>建设过程</h1>
+<p>大部分操作过程是在 Linux 系统上完成的。</p>
+<h3 id="初始化">初始化</h3>
+<ul>
+<li>执行过程</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">进入容器环境</span></span><br><span class="line">docker run -it --rm -u 1000:1000 --net=host -v $(pwd):/prjs node /bin/bash</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">临时安装 Hexo 工具，并初始化对应的目录结构</span></span><br><span class="line">cd /tmp</span><br><span class="line">npm i hexo-cli</span><br><span class="line">node_modules/hexo-cli/bin/hexo init /prjs/blog</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">固化 Hexo 工具到项目的开发环境中</span></span><br><span class="line">cd /prjs/blog</span><br><span class="line">yarn add hexo</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">下载并切换主题</span></span><br><span class="line">git clone https://github.com/Siricee/hexo-theme-Chic.git themes/Chic</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">$</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">使用配置编辑工具修改 blog 工程目录下的 _config.yml 配置，使其中</span> </span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash"><span class="string">&quot;theme: landscape&quot;</span>  改为  <span class="string">&quot;theme: Chic&quot;</span></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash"></span></span><br><span class="line"><span class="language-bash"><span class="comment"># 添加相应的界面，使符合主题基本页面要求</span></span></span><br><span class="line">node_modules/hexo/bin/hexo new page tag</span><br><span class="line">node_modules/hexo/bin/hexo new page category</span><br><span class="line">node_modules/hexo/bin/hexo new page about</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">$</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">参考主题的使用说明，使用配置文本编辑工具分别打开</span> </span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">blog/source/tag/index.md  和  blog/source/category/index.md</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">并添加 <span class="string">&quot;layout: xxx&quot;</span>项，修改成其对应的布局</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"></span></span><br><span class="line"><span class="language-bash"><span class="comment"># 预览效果，在浏览器中基本能看到最初效果了</span></span></span><br><span class="line">node_modules/hexo/bin/hexo server</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">退出容器环境，或者再打开一个终端进入到相应的目录上</span></span><br><span class="line">exit</span><br><span class="line">cd blog</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">使主题目录和主题变成普通文件目录</span></span><br><span class="line">rm themes/.gitkeep 2&gt;null</span><br><span class="line">rm -rf themes/Chic/.git</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">生成版本管理的初始化状态</span></span><br><span class="line">git init</span><br><span class="line">git add .</span><br><span class="line">git commit -m &quot;xxxx&quot;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>说明</li>
+</ul>
+<ol>
+<li>
+<p>进入 docker 中进行主要的部署，是因为电脑配置较差，而平时使用的工具比较杂，如果每使用一种工具都要在本地安装有对应的环境，电脑的磁盘空间很快就承受不住了，系统环境也变得过于碎片与杂乱，而使用容器，需要的时候随时可以拉取，不要的时候，删掉就可以，不会留下任何痕迹。另外，也不用在意不同工具的不同版本间依赖关系，它几乎总是能满足需求的。</p>
+<blockquote>
+<p>docker run -it --rm -u 1000:1000 --net=host -v $(pwd):/prjs node /bin/bash</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>run</td>
+<td>创建并启动一个容器</td>
+</tr>
+<tr>
+<td>-it</td>
+<td>使用有交互的终端接口，就像一个 shell 一样可以交互</td>
+</tr>
+<tr>
+<td>--rm</td>
+<td>退出时删掉容器，节省空间</td>
+</tr>
+<tr>
+<td>-u 1000:1000</td>
+<td>以指定 uid:gid 的身份操作控制台，使创建的文件在容器外部有权访问</td>
+</tr>
+<tr>
+<td>--net=host</td>
+<td>指定容器网络类型，预览的时候，可以通过容器外访问</td>
+</tr>
+<tr>
+<td>-v $(pwd):/prjs</td>
+<td>映射容器外的当前目录到容器内 /prjs 上</td>
+</tr>
+<tr>
+<td>node /bin/bash</td>
+<td>使用 node 镜像，在启动后打开一个 bash</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+</li>
+<li>
+<p>容器一关闭，里面的非映射目录所有的修改都将被清空，为免于每次进容器都要安装，所以 hexo 的工具这里选着了作为项目的开发工具，被写入依赖中。第一次装载临时目录，是因为没有全局安装的权限（以1000:1000 的身份进入容器的）。</p>
+</li>
+<li>
+<p>Hexo 工具初始化后，目录被处理过的，是一个普通目录，而主题是一个独立的项目。因为确定需要在主题目录中做非预期的修改，同时不希望与项目源头进行各种低效率的沟通或同时维护本地两个项目，故移除了主题项目的版本信息，把整个项目从根目录作为一个工程进行维护，仅在项目初始化版本的 commit 注释中做了说明。</p>
+</li>
+<li>
+<p>上面的过程确实把一个问题做得复杂了，而且有些模式固定的指令也相对有点长（尽管它们可以被 alias 修饰），前面也说了，这是个人习惯。在高效率的当下，完成这个过程，确实还可以很整洁的，但我还是希望在非工作状态中，可以更有仪式感一些。这类“复杂”的过程，就像早上路遇的陌生人，你带着微笑跟他说了句早上好。</p>
+</li>
+</ol>
+<h3 id="定制修改">定制修改</h3>
+<ul>
+<li>执行过程<sup class="footnote-ref"><a href="#fn4" id="fnref4">[4]</a></sup></li>
+</ul>
+<ol>
+<li>
+<p>修改框架配置 <code>_config.yml</code></p>
+<p>包括网站的标题、说明、关键字、最终发布地址等基本属性</p>
+</li>
+<li>
+<p>修改主题的配置参数 <code>themes/Chic/_config.yml</code></p>
+<p>包括个人的属性参数、页面的元素</p>
+</li>
+<li>
+<p>修改一些主题中的实现细节，使尽量达到符合自己要求的最佳效果，主要包括一下</p>
+<ol>
+<li>文字翻译</li>
+<li>链接跳转地址修正</li>
+</ol>
+</li>
+<li>
+<p>编写<code>关于</code>页面<code>source/about/index.md</code>，完成网站内容的初步建设</p>
+</li>
+</ol>
+<ul>
+<li>说明</li>
+</ul>
+<ol>
+<li>不是很熟悉配置项的可以参考对应的官方说明和示例</li>
+<li>并不是每个主题都需要修改，也不是每个主题都值得信赖，毕竟这些主题大部分都是个人开发者自行维护，难免有什么疏漏的地方，还是得按实际效果和是否达到自己预期为准</li>
+<li>在本项目环境中，默认的页面主要有三种：
+<ul>
+<li>分类：文章按不同分类聚合，不需要维护，在编写文章的时候指定所属分类即可</li>
+<li>标签：文章按不同标签聚合，不需要维护，在编写文章的时候指定所属标签即可，与分类类似但在内部逻辑中，分类是树形关系，标签是线性（但该主题中对分类并没有实现树形关系效果）</li>
+<li>文章：需要用户自行维护的博客内容</li>
+</ul>
+</li>
+</ol>
+<h3 id="部署上线">部署上线</h3>
+<ul>
+<li>预期</li>
+</ul>
+<p>本地采用 git 进行管理，GitHub 作为远程仓库，在 GitHubPages 进行发布，使用GitHub 的 Actions 进行自动编译部署。</p>
+<p>所以后期使用过程中，只要在本地完成新文章的编写后，再利用 git 工具 commit 并 push 到远程仓库即可，新的内容将在稍后自动更新到博客网站。</p>
+<p>因为使用的都是开源的东西，输出的只是内容而已，而内容本就在页面中展示，个人觉得没有什么敏感的东西，所以博客的编译前后工程都直接放在了同一个公开的仓库中，仅使用两个不同分支而已。</p>
+<ul>
+<li>执行过程</li>
+</ul>
+<ol start="0">
+<li>
+<p>申请 GitHub 的 <code>Access Token</code><sup class="footnote-ref"><a href="#fn5" id="fnref5">[5]</a></sup>，这不是一个必须的过程，如果已经申请过了（所有项目可共用），则直接使用即可。</p>
+</li>
+<li>
+<p>在 GitHub 上新建公开仓库，新建页面中仅输入仓库名、描述和公开属性即可，因为仓库是从本地上传的，不需要初始化仓库</p>
+</li>
+<li>
+<p>在新仓库的 <code>Settings/Secrets</code> 中创建自动部署时用到的关键参数（<code>Access Token</code>），如取名为<code>Token</code></p>
+</li>
+<li>
+<p>确保本地项目的“规范”完整，如包含<code>README.md</code>、 <code>LICENSE</code>等相关声明，信息内容为待发布状态（没有正在编辑中的内容）</p>
+</li>
+<li>
+<p>创建自动部署脚本<sup class="footnote-ref"><a href="#fn6" id="fnref6">[6]</a></sup>，可参考 Hexo 官方的教程，创建对应的路径文件，修改其中一之相关的参数（如<code>Token</code>）</p>
+</li>
+<li>
+<p>最后再整理工程，在本地 commit 分支归档当前状态</p>
+</li>
+<li>
+<p>把本地仓库提交到远程仓库</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git remote add origin git@github.com:nuyuiq/blog</span><br><span class="line">git push -u origin master</span><br></pre></td></tr></table></figure>
+<p>刚提交完成，可以在 web 端该仓库的 Actions 分页中，可以看到有任务正在执行，过会将可以在预期的线上地址上看到博客的最终效果</p>
+</li>
+</ol>
+<ul>
+<li>说明</li>
+</ul>
+<ol>
+<li>涉及的东西比较多，如果没接触过或不了解相应过程的话，可能有些不知所然，它们都是一个个小功能小模块，当真正组合在一起的时候，就能发挥出别样的魅力，以后需要输出新内容，只需要在本地 <code>WACP</code>(write/add/commit/push)即可</li>
+<li>对应的密钥申请、仓库创建等过程，随着官网的更新迭代，可能略有不同。该发布过程几乎全部依托第三方，此后是否有变更、技术是否不适用，目前也无法确定</li>
+<li>一个规规矩矩的墙内人，在 GitHub 上进行操作是，可能会遇到延迟卡顿，甚至请求超时等想象，部署其上的博客同样如此。在 GitHub 上进行网站部署是一个比较江湖气派的做法，有条件的话个人不建议</li>
+</ol>
+<h1>总结</h1>
+<p>这算是本站的开山之作了，前前后后也整过至少两次博客，但都因懒于维护最后下线了，而内容也过于表现，生活工作上的事亦导致没觉得有什么可以输出的。同样这次也没有给予厚望，有些事情想做了就去做而已。</p>
+<p>而且从这几次的建设过程中可以感受得到，互联网发展的迅猛，高效率是真真正正落实到了各个方面，以往的繁琐操作、昂贵的成本，现在都变得唾手可得。我不知道这对一个行业来说意味则什么，但从职业命途来说，还是感触挺深的。</p>
+<p>回归建设，这个过程，或者这个行为模板，对于建设网站来说，没遇到什么棘手的问题，很顺利。不知道为什么，这样反而好像少了一点什么乐趣似的，好奇怪哈。</p>
+<hr class="footnotes-sep">
+<section class="footnotes">
+<ol class="footnotes-list">
+<li id="fn1" class="footnote-item"><p>Hexo: <a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/">https://hexo.io/zh-cn/</a> <a href="#fnref1" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn2" class="footnote-item"><p>hexo-theme-Chic: <a target="_blank" rel="noopener" href="https://github.com/Siricee/hexo-theme-Chic">https://github.com/Siricee/hexo-theme-Chic</a> <a href="#fnref2" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn3" class="footnote-item"><p>Typora: <a target="_blank" rel="noopener" href="https://typoraio.cn/">https://typoraio.cn/</a> <a href="#fnref3" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn4" class="footnote-item"><p>参考基本修改差异: <a target="_blank" rel="noopener" href="https://github.com/nuyuiq/blog/commit/3625effbd3ec28df6c479aace9c09d1fe5dc92ed">https://github.com/nuyuiq/blog/commit/3625effbd3ec28df6c479aace9c09d1fe5dc92ed</a> <a href="#fnref4" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn5" class="footnote-item"><p>官方申请指南: <a target="_blank" rel="noopener" href="https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token">https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token</a> <a href="#fnref5" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn6" class="footnote-item"><p>部署Hexo: <a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/github-pages">https://hexo.io/zh-cn/docs/github-pages</a> <a href="#fnref6" class="footnote-backref">↩︎</a></p>
+</li>
+</ol>
+</section>
+
+        </div>
+
+        
+        <section class="post-tags">
+            <div>
+                
+                    <span>标签:</span>
+                    <span class="tag">
+                        
+                            <a href="/blog/tags/docker/"># docker</a>
+                        
+                            <a href="/blog/tags/Hexo/"># Hexo</a>
+                        
+                            <a href="/blog/tags/GithubPages/"># GithubPages</a>
+                        
+                            <a href="/blog/tags/%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/"># 搭建博客</a>
+                        
+                            
+                    </span>
+                
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">后退</a>
+                <span>· </span>
+                <a href="/blog/">主页</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+            
+        </section>
+
+
+    </article>
+</div>
+
+            </div>
+            <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© nuyuiq | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+
+    </div>
+</body>
+
+</html>
