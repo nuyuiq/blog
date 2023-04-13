@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="nuyuiq">
+
+
+    <meta name="subtitle" content="人生匆匆 脚下留情 留下点什么 证明来过吧">
+
+
+    <meta name="description" content="随便写写 记录记录">
+
+
+    <meta name="keywords" content="nuyuiq,Hexo,Blog">
+
+
+<title>数独 | 建基的博客空间 @_@</title>
+
+
+
+    <link rel="icon" href="/blog/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/blog/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/blog/js/script.js"></script>
+    
+    <script src="/blog/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+<body>
+    <script>
+        // this function is used to check current theme before page loaded.
+        (() => {
+            const currentTheme = window.localStorage && window.localStorage.getItem('theme') || '';
+            const isDark = currentTheme === 'dark';
+            const pagebody = document.getElementsByTagName('body')[0]
+            if (isDark) {
+                pagebody.classList.add('dark-theme');
+                // mobile
+                let doc = document.getElementById("mobile-toggle-theme")
+                if (doc) doc.innerText = "· Dark"
+            } else {
+                pagebody.classList.remove('dark-theme');
+                // mobile
+                let doc = document.getElementById("mobile-toggle-theme")
+                if (doc) doc.innerText = "· Light"
+            }
+        })();
+    </script>
+
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/blog/">建基. Blog</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/blog/archives">归档</a>
+                
+                    <a class="menu-item" href="/blog/category">分类</a>
+                
+                    <a class="menu-item" href="/blog/tag">标签</a>
+                
+                    <a class="menu-item" href="/blog/about">关于</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/blog/">建基. Blog</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/blog/archives">归档</a>
+                
+                    <a class="menu-item" href="/blog/category">分类</a>
+                
+                    <a class="menu-item" href="/blog/tag">标签</a>
+                
+                    <a class="menu-item" href="/blog/about">关于</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+            <div class="main">
+                <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">全部展开</a>
+        <a onclick="go_top()">回到顶部</a>
+        <a onclick="go_bottom()">下到底部</a>
+    </div>
+</div>
+
+<script>
+    var tocbot_timer;
+    var DEPTH_MAX = 6; // 为 6 时展开所有
+    var tocbot_default_config = {
+        tocSelector: '.tocbot-list',
+        contentSelector: '.post-content',
+        headingSelector: 'h1, h2, h3, h4, h5',
+        orderedList: false,
+        scrollSmooth: true,
+        onClick: extend_click,
+    };
+
+    function extend_click() {
+        clearTimeout(tocbot_timer);
+        tocbot_timer = setTimeout(function() {
+            tocbot.refresh(obj_merge(tocbot_default_config, {
+                hasInnerContainers: true
+            }));
+        }, 420); // 这个值是由 tocbot 源码里定义的 scrollSmoothDuration 得来的
+    }
+
+    document.ready(function() {
+        tocbot.init(obj_merge(tocbot_default_config, {
+            collapseDepth: 1
+        }));
+    });
+
+    function expand_toc() {
+        var b = document.querySelector('.tocbot-toc-expand');
+        var expanded = b.getAttribute('data-expanded');
+        expanded ? b.removeAttribute('data-expanded') : b.setAttribute('data-expanded', true);
+        tocbot.refresh(obj_merge(tocbot_default_config, {
+            collapseDepth: expanded ? 1 : DEPTH_MAX
+        }));
+        b.innerText = expanded ? "全部展开" : "全部收缩";
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+    function obj_merge(target, source) {
+        for (var item in source) {
+            if (source.hasOwnProperty(item)) {
+                target[item] = source[item];
+            }
+        }
+        return target;
+    }
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">数独</h1>
+            
+                <div class="post-meta">
+                    
+                        作者: <a itemprop="author" rel="author" href="/blog/">nuyuiq</a>
+                    
+
+                    
+                        <span class="post-time">
+                            日期时间: <a href="#">四月 8, 2023&nbsp;&nbsp;13:43:05</a>
+                        </span>
+                    
+                    
+                        <span class="post-category">
+                            分类:
+                            
+                                <a href="/blog/categories/DevLog/">DevLog</a>
+                            
+                        </span>
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <p>网上冲浪的时间碎片中，偶然从虎扑<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup>步行街一个帖子上看到一张数独图片（原出处不知道是哪里，现在也忘记是哪个贴子上看到的了），反正当时也是为了打发零碎时间，然后就把这图片保存到本地，用画图工具打开，尝试去演算一下。</p>
+<img src="../../../../image/sudoku.png" alt="sudoku" style="zoom:50%;" />
+<p>呵呵，果然没几步就推演不下去了，行了，接受自己的平庸吧，等下次有空了，再写个程序自动把它算出来，接受平庸但不认输，就磕上了。</p>
+<p>。。。</p>
+<h5 id="一些思考准备">一些思考准备</h5>
+<p>因为这种普通数独的规则直接明了，就算真要暴力破解，计算量也是可以接受的，但这会失去很多乐趣，当然后续程序设计上是不用过多考虑性能问题（但不代表直接摆烂）。</p>
+<p>像这种特异化极强工程复杂度简单的问题，一个文件代码片段就能解决了，再结合个人的知识储备，首选以下几种语言：</p>
+<ol>
+<li>
+<p>C</p>
+<p>如果想追寻实物的真理，选它没错，只要愿意折腾，它能很好的表达个人思辨过程，当然自己的思辨能力也要过关</p>
+</li>
+<li>
+<p>C++</p>
+<p>模式成熟，思路清晰，在设计过程中，就是对问题本质的不断分解，极具工程思想</p>
+</li>
+<li>
+<p>Python</p>
+<p>非常合适一些小实验小场景，对象实现便捷开发效率高</p>
+</li>
+</ol>
+<p>因为不打算使用任何的预测的方法（暴力、试错）来解决这个问题，所以不考虑回溯过程，同时也就不考虑递归。</p>
+<p>由确定的数来推断不确定的数，感觉可利用的条件规则还是比较少的（不然就可以很容易的徒手算出来的），于是决定采用由确定的数，先转化为可能的数，再有可能的数之间的约束推断出新的确定值。</p>
+<p>数独矩阵首选需要一个至少二维的数组，每个元素可能是一个确定的值，也可能是多个候选值，还有可能是数独异常导致的空值，所以这里可以考虑多态数组，或多态元素，其中元素，Python可以直接表现，确定的可以用值，候选用列表，异常用None，C++可以用些技巧，也可以和C一样，用候选数组（确定的后续个数为1），或 比特位等数字特征。</p>
+<p>所以要选那种语言的，，。</p>
+<p>就你了，C 语言，裸金属质感。（其实也是很随意就拍板子的，每一种都适合，与其纠结，不如 <code>random()</code> 一下）</p>
+<h5 id="粮草先行">粮草先行</h5>
+<p>新建文件…… （省略这些过程）</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 两个二进制辅助函数</span></span><br><span class="line"><span class="comment">// 比特1的个数，同 GNUC __builtin_popcount 内置函数</span></span><br><span class="line"><span class="type">static</span> <span class="type">int</span> <span class="title function_">bcount</span><span class="params">(<span class="type">int</span> v)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">int</span> count = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span> (v)</span><br><span class="line">    &#123;</span><br><span class="line">        count++;</span><br><span class="line">        v &amp;= v - <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> count;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 第一个比特1的偏移，同 GNUC __builtin_ctz 内置函数</span></span><br><span class="line"><span class="type">static</span> <span class="type">int</span> <span class="title function_">boffs</span><span class="params">(<span class="type">int</span> v)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">int</span> offs = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span> (v)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (v &amp; <span class="number">1</span>) <span class="keyword">break</span>;</span><br><span class="line">        offs++;</span><br><span class="line">        v &gt;&gt;= <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> offs;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// -1 无解    0 成功    1 规则不够，暂时无法下一步解析</span></span><br><span class="line"><span class="type">int</span> <span class="title function_">sudoku</span><span class="params">(<span class="type">const</span> <span class="type">char</span> in[<span class="number">9</span>][<span class="number">9</span>], <span class="type">int</span> out[<span class="number">9</span>][<span class="number">9</span>])</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">// todo</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 打印候选</span></span><br><span class="line"><span class="type">static</span> <span class="type">void</span> <span class="title function_">printOther</span><span class="params">(<span class="type">int</span> v)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;[&quot;</span>);</span><br><span class="line">    <span class="keyword">while</span> (v)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%d&quot;</span>, boffs(v) + <span class="number">1</span>);</span><br><span class="line">        v &amp;= v - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">if</span> (v) <span class="built_in">printf</span>(<span class="string">&quot;|&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;] &quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">// 输入中，正数表示已知，0表示未知，使用9数组</span></span><br><span class="line">    <span class="type">const</span> <span class="type">char</span> in[<span class="number">9</span>][<span class="number">9</span>] = &#123;</span><br><span class="line">        &#123;<span class="number">0</span>, <span class="number">4</span>, <span class="number">6</span>, <span class="number">9</span>, <span class="number">0</span>, <span class="number">3</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>&#125;,</span><br><span class="line">        &#123;<span class="number">0</span>, <span class="number">0</span>, <span class="number">3</span>, <span class="number">0</span>, <span class="number">5</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">6</span>, <span class="number">0</span>&#125;,</span><br><span class="line">        &#123;<span class="number">9</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">2</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">3</span>&#125;,</span><br><span class="line">        &#123;<span class="number">0</span>, <span class="number">0</span>, <span class="number">5</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">6</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>&#125;,</span><br><span class="line">        &#123;<span class="number">8</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>&#125;,</span><br><span class="line">        &#123;<span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">0</span>, <span class="number">2</span>, <span class="number">0</span>, <span class="number">0</span>&#125;,</span><br><span class="line">        &#123;<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">5</span>, <span class="number">0</span>&#125;,</span><br><span class="line">        &#123;<span class="number">0</span>, <span class="number">8</span>, <span class="number">1</span>, <span class="number">3</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">7</span>&#125;,</span><br><span class="line">        &#123;<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">8</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">4</span>&#125;</span><br><span class="line">    &#125;;</span><br><span class="line">	<span class="comment">// 输出中，正数表示已知，0表示异常，负数可以取绝对值后，其中二进制分解可以得到可能的数</span></span><br><span class="line">    <span class="comment">// 因为二进制中至少使用9比特超过一个字节，char类型不能用，干脆4字节对齐，取int了</span></span><br><span class="line">    <span class="type">int</span> out[<span class="number">9</span>][<span class="number">9</span>];</span><br><span class="line">    <span class="type">int</span> ret = sudoku(in, out);</span><br><span class="line">    <span class="keyword">if</span> (ret &lt; <span class="number">0</span>) <span class="built_in">printf</span>(<span class="string">&quot;Decoding failed\n&quot;</span>);</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (ret &gt; <span class="number">0</span>) <span class="built_in">printf</span>(<span class="string">&quot;To be continued\n&quot;</span>);</span><br><span class="line">    <span class="type">int</span> i,j; <span class="comment">// 兼容c89，如果直接放到for里面，每次编译的时候，还得加上-std=c99</span></span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; <span class="number">9</span>; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (i % <span class="number">3</span> == <span class="number">0</span>) <span class="built_in">printf</span>(<span class="string">&quot;\n&quot;</span>);</span><br><span class="line">        <span class="keyword">for</span> (j = <span class="number">0</span>; j &lt; <span class="number">9</span>; j++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (j % <span class="number">3</span> == <span class="number">0</span>) <span class="built_in">printf</span>(<span class="string">&quot;    &quot;</span>);</span><br><span class="line">            <span class="keyword">if</span> (out[i][j] &gt; <span class="number">0</span>) <span class="built_in">printf</span>(<span class="string">&quot;%d &quot;</span>, out[i][j]);</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span> (out[i][j] == <span class="number">0</span>) <span class="built_in">printf</span>(<span class="string">&quot;x &quot;</span>);</span><br><span class="line">            <span class="keyword">else</span> printOther(-out[i][j]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;\n&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>因为这份记录是后续补上的，代码在一些细节上可能已经处理过了，比如刚开始的时候，bcount函数是用__builtin_popcount内置函数的，for的初始变量前置等。</p>
+<blockquote>
+<p>GNUC 编译器内置有一些函数，其中二进制相关的有</p>
+<ul>
+<li>__builtin_popcount</li>
+</ul>
+<p>返回值的二进制表示形式中1的个数</p>
+<ul>
+<li>__builtin_ctz(l/ll)</li>
+</ul>
+<p>返回值的二进制表示形式中末尾0的个数</p>
+<ul>
+<li>__buitlin_clz(l/ll)</li>
+</ul>
+<p>返回值的二进制表示形式中前导0的个数。</p>
+<ul>
+<li>__builtin_parity</li>
+</ul>
+<p>返回值的二进制表示形式中1的个数的奇偶性（偶：0，奇：1）</p>
+<ul>
+<li>__builtin_ffs</li>
+</ul>
+<p>返回值的二进制表示形式中最后一个1在第几位（从后往前）</p>
+<ul>
+<li>…</li>
+</ul>
+<p>更多细节请参考对应资料<sup class="footnote-ref"><a href="#fn2" id="fnref2">[2]</a></sup></p>
+</blockquote>
+<p>因为在后续处理计算过程中，需要频繁操作候选数的值，输出中输出又是负数，正数表示确定值，所以这中间需要做一层转换。</p>
+<p>解数独过程分三段，初始化、解数独和转换返回格式。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 十字阵列的i行j列，或包含的宫，清除掉 bit</span></span><br><span class="line"><span class="type">static</span> <span class="type">void</span> <span class="title function_">sd_clsbit</span><span class="params">(<span class="type">int</span> buf[<span class="number">9</span>][<span class="number">9</span>], <span class="type">int</span> i, <span class="type">int</span> j, <span class="type">int</span> bit)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">// some processes</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 根据已知的数字，初步排除掉未知数的不可能值</span></span><br><span class="line"><span class="type">static</span> <span class="type">void</span> <span class="title function_">sd_init</span><span class="params">(<span class="type">const</span> <span class="type">char</span> in[<span class="number">9</span>][<span class="number">9</span>], <span class="type">int</span> buf[<span class="number">9</span>][<span class="number">9</span>])</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">// some processes</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 转成输出模式，返回0表示没有不确定的数</span></span><br><span class="line"><span class="type">static</span> <span class="type">int</span> <span class="title function_">sd_conv</span><span class="params">(<span class="type">int</span> buf[<span class="number">9</span>][<span class="number">9</span>], <span class="type">int</span> out[<span class="number">9</span>][<span class="number">9</span>])</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">// some processes</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 每轮处理至少一个问题，无解返回-1，条件不足或已完成返回0，处理过问题，返回1</span></span><br><span class="line"><span class="type">static</span> <span class="type">int</span> <span class="title function_">sd_decode</span><span class="params">(<span class="type">int</span> buf[<span class="number">9</span>][<span class="number">9</span>])</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">// todo</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 解数独</span></span><br><span class="line"><span class="type">int</span> <span class="title function_">sudoku</span><span class="params">(<span class="type">const</span> <span class="type">char</span> in[<span class="number">9</span>][<span class="number">9</span>], <span class="type">int</span> out[<span class="number">9</span>][<span class="number">9</span>])</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">int</span> buf[<span class="number">9</span>][<span class="number">9</span>];</span><br><span class="line">    <span class="type">int</span> ret = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 初始化</span></span><br><span class="line">    sd_init(in, buf);</span><br><span class="line">	<span class="comment">// 解码</span></span><br><span class="line">    <span class="keyword">while</span> ((ret = sd_decode(buf)) &gt; <span class="number">0</span>);</span><br><span class="line">	<span class="comment">// 转换输出</span></span><br><span class="line">    <span class="keyword">if</span> (sd_conv(buf, out) &amp;&amp; ret == <span class="number">0</span>) ret = <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> ret;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>其中<code>sd_clsbit</code> <code>sd_init</code> <code>sd_conv</code> 实现都比较简单，<code>sd_clsbit</code> 会被<code>sd_init</code> 内部使用和后续解码使用，主要功能是确定 （i，j）元素后，对其影响范围内的元素更新约束，包括同一行同一列和同一宫内的。</p>
+<p>初始化时一般先默认所有的未确定元素可能值为 <code>0x1ff(0b_1_1111_1111)</code> 然后遍历每一个确定的值，用<code>sd_clsbit</code> 推演更新其所产生的约束条件，剔除掉不能的比特位。</p>
+<p>在二进制中，需要剔除或添加每个数的某一位，通产的做法是：</p>
+<ul>
+<li>val &amp;= ~(1 &lt;&lt; bit);</li>
+<li>val |= 1 &lt;&lt; bit;</li>
+</ul>
+<p>现在终于到了关键的之处了，那就是界面过程 <code>sd_decode</code> 函数。</p>
+<h5 id="步步为营">步步为营</h5>
+<p>先来看看当前的数独输出情况。</p>
+<table style="width:450px;height:450px;">
+    <tr><td>1,2,5,7</td><td><i style="color:lightgray">4</i></td><td><i style="color:lightgray">6</i></td><td><i style="color:lightgray">9</i></td><td>1,7</td><td><i style="color:lightgray">3</i></td><td>5,7,8</td><td>2,7,8</td><td>1,2,5,8</td></tr>
+    <tr><td>1,2,7</td><td>2,7</td><td><i style="color:lightgray">3</i></td><td>1,4</td><td><i style="color:lightgray">5</i></td><td>1,4,7,8</td><td>4,7,8,9</td><td><i style="color:lightgray">6</i></td><td>1,2,8,9</td></tr>
+    <tr><td><i style="color:lightgray">9</i></td><td>5,7</td><td>7,8</td><td>1,4,6</td><td>1,4,6,7</td><td><i style="color:lightgray">2</i></td><td>4,5,7,8</td><td>4,7,8</td><td><i style="color:lightgray">3</i></td></tr>
+    <tr><td>2,3,4,7</td><td>2,3,7,9</td><td><i style="color:lightgray">5</i></td><td>1,2,4</td><td>1,2,3,4,9</td><td><i style="color:lightgray">6</i></td><td>3,4,7,8,9</td><td>3,4,7,8,9</td><td>8,9</td></tr>
+    <tr><td><i style="color:lightgray">8</i></td><td>2,3,6,7,9</td><td>2,4,7,9</td><td>2,4,5</td><td>2,3,4,9</td><td>4,5,9</td><td>3,4,5,6,7,9</td><td><i style="color:lightgray">1</i></td><td>5,6,9</td></tr>
+    <tr><td>3,4,6</td><td><i style="color:lightgray">1</i></td><td>4,9</td><td><i style="color:lightgray">7</i></td><td><i style="color:lightgray">8</i></td><td>4,5,9</td><td><i style="color:lightgray">2</i></td><td>3,4,9</td><td>5,6,9</td></tr>
+    <tr><td>2,3,4,6,7</td><td>2,3,6,7,9</td><td>2,4,7,9</td><td>1,2,4,6</td><td>1,2,4,6,7,9</td><td>1,4,7,9</td><td>3,6,8,9</td><td><i style="color:lightgray">5</i></td><td>2,6,8,9</td></tr>
+    <tr><td>2,4,5,6</td><td><i style="color:lightgray">8</i></td><td><i style="color:lightgray">1</i></td><td><i style="color:lightgray">3</i></td><td>2,4,6,9</td><td>4,5,9</td><td>6,9</td><td>2,9</td><td><i style="color:lightgray">7</i></td></tr>
+    <tr><td>2,3,5,6,7</td><td>2,3,5,6,7,9</td><td>2,7,9</td><td><i style="color:lightgray">8</i></td><td>2,6,7,9</td><td>5,7,9</td><td><i style="color:lightgray">1</i></td><td>2,3,9</td><td><i style="color:lightgray">4</i></td></tr>
+</table>
+<p>参考大部分网上的数独解法教程，根据作用效果，主要有两种规则</p>
+<ul>
+<li>确定元素数值</li>
+<li>排除元素候选值</li>
+</ul>
+<p>其中确定类型中，最简单的就是<strong>候选元素值唯一</strong>。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 单一元素</span></span><br><span class="line"><span class="type">static</span> <span class="type">int</span> <span class="title function_">sd_r0</span><span class="params">(<span class="type">int</span> buf[<span class="number">9</span>][<span class="number">9</span>])</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">int</span> i,j;</span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; <span class="number">9</span>; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span> (j = <span class="number">0</span>; j &lt; <span class="number">9</span>; j++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="comment">// 跳过非候选词</span></span><br><span class="line">            <span class="keyword">if</span> (buf[i][j] &lt;= <span class="number">0</span>) <span class="keyword">continue</span>;</span><br><span class="line">            <span class="comment">// 唯一候选词</span></span><br><span class="line">            <span class="keyword">if</span> (bcount(buf[i][j]) == <span class="number">1</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="comment">// 从二进制比特数转化为确定数</span></span><br><span class="line">                <span class="type">int</span> bit = boffs(buf[i][j]);</span><br><span class="line">                buf[i][j] = -(bit + <span class="number">1</span>);</span><br><span class="line">                <span class="comment">// 更新约束</span></span><br><span class="line">                sd_clsbit(buf, i, j, bit);</span><br><span class="line">                <span class="comment">// 这里每次只处理一个，当然也可以批量</span></span><br><span class="line">                <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 没有单一元素</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>其次是某种可能值，在某个<strong>作用域中唯一</strong></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 作用域中唯一</span></span><br><span class="line"><span class="type">static</span> <span class="type">int</span> <span class="title function_">sd_r1</span><span class="params">(<span class="type">int</span> buf[<span class="number">9</span>][<span class="number">9</span>])</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">int</span> i,j,ii,jj;</span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; <span class="number">9</span>; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span> (j = <span class="number">0</span>; j &lt; <span class="number">9</span>; j++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="type">int</span> val = buf[i][j];</span><br><span class="line">            <span class="keyword">if</span> (val &lt;= <span class="number">0</span>) <span class="keyword">continue</span>;</span><br><span class="line">            <span class="keyword">while</span> (val)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="comment">// 循环中遍历每一位（每一种可能）</span></span><br><span class="line">                <span class="type">int</span> bit = boffs(val);</span><br><span class="line">                <span class="type">int</span> offs = <span class="number">1</span> &lt;&lt; bit; <span class="comment">// 当前比特</span></span><br><span class="line">                val &amp;= ~offs;</span><br><span class="line">                </span><br><span class="line">                <span class="type">int</span> md = <span class="number">7</span>; <span class="comment">// 0b000_0000_0000_0111 底三位，表示三种匹配模式</span></span><br><span class="line">                <span class="type">int</span> di = i / <span class="number">3</span>;</span><br><span class="line">                <span class="type">int</span> dj = j / <span class="number">3</span>;</span><br><span class="line">                <span class="keyword">for</span> (ii = <span class="number">0</span>; ii &lt; <span class="number">9</span> &amp;&amp; md; ii++)</span><br><span class="line">                &#123;</span><br><span class="line">                    <span class="keyword">for</span> (jj = <span class="number">0</span>; jj &lt; <span class="number">9</span> &amp;&amp; md; jj++)</span><br><span class="line">                    &#123;</span><br><span class="line">                        <span class="comment">// 跳过已确定或非法</span></span><br><span class="line">                        <span class="keyword">if</span> (buf[ii][jj] &lt;= <span class="number">0</span>) <span class="keyword">continue</span>;</span><br><span class="line">                        <span class="comment">// 跳过当前</span></span><br><span class="line">                        <span class="keyword">if</span> (i == ii &amp;&amp; j == jj) <span class="keyword">continue</span>;</span><br><span class="line">						<span class="comment">// 宫内是否唯一</span></span><br><span class="line">                        <span class="keyword">if</span> ((md &amp; <span class="number">1</span>) &amp;&amp; di == ii / <span class="number">3</span> &amp;&amp; dj == jj / <span class="number">3</span>)</span><br><span class="line">                        &#123;</span><br><span class="line">                            <span class="keyword">if</span> (buf[ii][jj] &amp; offs)</span><br><span class="line">                            &#123;</span><br><span class="line">                                <span class="comment">// 宫内不唯一</span></span><br><span class="line">                                md -= <span class="number">1</span>;</span><br><span class="line">                            &#125;</span><br><span class="line">                        &#125;</span><br><span class="line">                        <span class="comment">// 横是否唯一</span></span><br><span class="line">                        <span class="keyword">if</span> ((md &amp; <span class="number">2</span>) &amp;&amp; i == ii)</span><br><span class="line">                        &#123;</span><br><span class="line">                            <span class="keyword">if</span> (buf[ii][jj] &amp; offs)</span><br><span class="line">                            &#123;</span><br><span class="line">                                <span class="comment">// 横不唯一</span></span><br><span class="line">                                md -= <span class="number">2</span>;</span><br><span class="line">                            &#125;</span><br><span class="line">                        &#125;</span><br><span class="line">                        <span class="comment">// 纵是否唯一</span></span><br><span class="line">                        <span class="keyword">if</span> ((md &amp; <span class="number">4</span>) &amp;&amp; j == jj)</span><br><span class="line">                        &#123;</span><br><span class="line">                            <span class="keyword">if</span> (buf[ii][jj] &amp; offs)</span><br><span class="line">                            &#123;</span><br><span class="line">                                <span class="comment">// 纵不唯一</span></span><br><span class="line">                                md -= <span class="number">4</span>;</span><br><span class="line">                            &#125;</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">if</span> (md == <span class="number">0</span>) <span class="keyword">continue</span>;</span><br><span class="line">                <span class="comment">// 确定数字</span></span><br><span class="line">                buf[i][j] = -(bit + <span class="number">1</span>);</span><br><span class="line">                sd_clsbit(buf, i, j, bit);</span><br><span class="line">                <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在 <code>sd_decode</code>内先串上这两条规则</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">static</span> <span class="type">int</span> <span class="title function_">sd_decode</span><span class="params">(<span class="type">int</span> buf[<span class="number">9</span>][<span class="number">9</span>])</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span> (sd_r0(buf)) <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">if</span> (sd_r1(buf)) <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 校验，当所有规则都失效时，如果有异常元素时返回-1</span></span><br><span class="line">    <span class="type">int</span> i,j;</span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; <span class="number">9</span>; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span> (j = <span class="number">0</span>; j &lt; <span class="number">9</span>; j++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (buf[i][j] == <span class="number">0</span>) <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>再次运行，得到如下结果</p>
+<table style="width:450px;height:450px;">
+    <tr><td>1,2,5,7</td><td><i style="color:lightgray">4</i></td><td><i style="color:lightgray">6</i></td><td><i style="color:lightgray">9</i></td><td>1,7</td><td><i style="color:lightgray">3</i></td><td>5,7,8</td><td>2,7,8</td><td>1,2</td></tr>
+    <tr><td>1,2,7</td><td>2,7</td><td><i style="color:lightgray">3</i></td><td><i style="color:lightgray">4</i></td><td><i style="color:lightgray">5</i></td><td><i style="color:lightgray">8</i></td><td><i style="color:lightgray">9</i></td><td><i style="color:lightgray">6</i></td><td>1,2</td></tr>
+    <tr><td><i style="color:lightgray">9</i></td><td>5,7</td><td><i style="color:lightgray">8</i></td><td>1,6</td><td>1,6,7</td><td><i style="color:lightgray">2</i></td><td>4,5,7</td><td>4,7</td><td><i style="color:lightgray">3</i></td></tr>
+    <tr><td>2,3,4,7</td><td>2,3,7</td><td><i style="color:lightgray">5</i></td><td>1,2</td><td>1,2,3,4</td><td><i style="color:lightgray">6</i></td><td>4,7,8</td><td>4,7,8</td><td><i style="color:lightgray">9</i></td></tr>
+    <tr><td><i style="color:lightgray">8</i></td><td>2,3,7,9</td><td>2,4,7,9</td><td><i style="color:lightgray">5</i></td><td>2,3,4,9</td><td>4,9</td><td>4,7</td><td><i style="color:lightgray">1</i></td><td><i style="color:lightgray">6</i></td></tr>
+    <tr><td><i style="color:lightgray">6</i></td><td><i style="color:lightgray">1</i></td><td>4,9</td><td><i style="color:lightgray">7</i></td><td><i style="color:lightgray">8</i></td><td>4,9</td><td><i style="color:lightgray">2</i></td><td><i style="color:lightgray">3</i></td><td><i style="color:lightgray">5</i></td></tr>
+    <tr><td>2,4,7</td><td>2,6,7,9</td><td>2,4,7,9</td><td>2,6</td><td>2,4,6,9</td><td><i style="color:lightgray">1</i></td><td><i style="color:lightgray">3</i></td><td><i style="color:lightgray">5</i></td><td><i style="color:lightgray">8</i></td></tr>
+    <tr><td>2,4</td><td><i style="color:lightgray">8</i></td><td><i style="color:lightgray">1</i></td><td><i style="color:lightgray">3</i></td><td>2,4,9</td><td><i style="color:lightgray">5</i></td><td><i style="color:lightgray">6</i></td><td>2,9</td><td><i style="color:lightgray">7</i></td></tr>
+    <tr><td>2,3,5</td><td>2,3,5,6,9</td><td>2,9</td><td><i style="color:lightgray">8</i></td><td>2,6,9</td><td><i style="color:lightgray">7</i></td><td><i style="color:lightgray">1</i></td><td>2,9</td><td><i style="color:lightgray">4</i></td></tr>
+</table>
+<p>可见以消除了不少，那么接下来就是消除不可能的，之后再复用上面的，可进一步确定元素值</p>
+<p>在消除规则中，有一个简单的规则不严谨描述如下：</p>
+<blockquote>
+<p>已经有n个数字占据了n个空格，那么，其他空格中就不会出现这n个数字，这样，在填该基本单元内的其他待填空格时，就可以把这n个数字排除掉。</p>
+</blockquote>
+<p>这里先实现它的特殊情况，即 <strong>相同n个数字组合重复占据了其作用域内n个空格，则作用域内其它空格不可能出现这n个数字中任何一个</strong></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 循环闭环</span></span><br><span class="line"><span class="type">static</span> <span class="type">int</span> <span class="title function_">sd_r2</span><span class="params">(<span class="type">int</span> buf[<span class="number">9</span>][<span class="number">9</span>])</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">int</span> i,j,ii,jj,iii,jjj;</span><br><span class="line">    <span class="comment">// 遍历每一个元素</span></span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; <span class="number">9</span>; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span> (j = <span class="number">0</span>; j &lt; <span class="number">9</span>; j++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="comment">// 定调匹配目标值</span></span><br><span class="line">            <span class="type">int</span> val = buf[i][j];</span><br><span class="line">            <span class="keyword">if</span> (val &lt;= <span class="number">0</span>) <span class="keyword">continue</span>;</span><br><span class="line">            <span class="type">int</span> bitcount = bcount(val);</span><br><span class="line">            <span class="comment">// 行内</span></span><br><span class="line">            <span class="type">int</span> count = bitcount;</span><br><span class="line">            <span class="keyword">for</span> (ii = <span class="number">0</span>; ii &lt; <span class="number">9</span>; ii++)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="comment">// 是否相同组合</span></span><br><span class="line">                <span class="keyword">if</span> (buf[ii][j] == val)</span><br><span class="line">                &#123;</span><br><span class="line">                    <span class="comment">// 是否达到 n 个</span></span><br><span class="line">                    <span class="keyword">if</span> (--count == <span class="number">0</span>)</span><br><span class="line">                    &#123;</span><br><span class="line">                        <span class="comment">// 长度n数组重复至少n次，满足规则</span></span><br><span class="line">                        <span class="type">int</span> empty = <span class="number">1</span>;</span><br><span class="line">                        <span class="keyword">for</span> (iii = <span class="number">0</span>; iii &lt; <span class="number">9</span>; iii++)</span><br><span class="line">                        &#123;</span><br><span class="line">                            <span class="comment">// 抹除行内其它空格所有出现的匹配可能值</span></span><br><span class="line">                            <span class="keyword">if</span> (buf[iii][j] &gt; <span class="number">0</span> &amp;&amp; <span class="comment">// 非确定值</span></span><br><span class="line">                                buf[iii][j] != val &amp;&amp; <span class="comment">// 不是目标值</span></span><br><span class="line">                                (buf[iii][j] &amp; val)) <span class="comment">// 交集非空，可抹除</span></span><br><span class="line">                            &#123;</span><br><span class="line">                                buf[iii][j] &amp;= ~val;</span><br><span class="line">                                empty = <span class="number">0</span>;</span><br><span class="line">                            &#125;</span><br><span class="line">                        &#125;</span><br><span class="line">                        <span class="keyword">if</span> (empty)</span><br><span class="line">                        &#123;</span><br><span class="line">                            <span class="comment">// 规则生效，但无影响的结果</span></span><br><span class="line">                            <span class="keyword">break</span>;</span><br><span class="line">                        &#125;</span><br><span class="line">                        <span class="keyword">else</span></span><br><span class="line">                        &#123;</span><br><span class="line">                            <span class="comment">// 数独已更新，可批量，但这里更新了一次就返回了</span></span><br><span class="line">                            <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">// 列内</span></span><br><span class="line">            count = bitcount;</span><br><span class="line">            <span class="keyword">for</span> (jj = <span class="number">0</span>; jj &lt; <span class="number">9</span>; jj++)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span> (buf[i][jj] == val)</span><br><span class="line">                &#123;</span><br><span class="line">                    <span class="keyword">if</span> (--count == <span class="number">0</span>)</span><br><span class="line">                    &#123;</span><br><span class="line">                        <span class="comment">// 长度n数组重复至少n次</span></span><br><span class="line">                        <span class="type">int</span> empty = <span class="number">1</span>;</span><br><span class="line">                        <span class="keyword">for</span> (jjj = <span class="number">0</span>; jjj &lt; <span class="number">9</span>; jjj++)</span><br><span class="line">                        &#123;</span><br><span class="line">                            <span class="keyword">if</span> (buf[i][jjj] &gt; <span class="number">0</span> &amp;&amp; </span><br><span class="line">                                buf[i][jjj] != val &amp;&amp; </span><br><span class="line">                                (buf[i][jjj] &amp; val))</span><br><span class="line">                            &#123;</span><br><span class="line">                                buf[i][jjj] &amp;= ~val;</span><br><span class="line">                                empty = <span class="number">0</span>;</span><br><span class="line">                            &#125;</span><br><span class="line">                        &#125;</span><br><span class="line">                        <span class="keyword">if</span> (empty) <span class="keyword">break</span>;</span><br><span class="line">                        <span class="keyword">else</span>  <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">// 宫内</span></span><br><span class="line">            <span class="type">int</span> di = i / <span class="number">3</span>;</span><br><span class="line">            <span class="type">int</span> dj = j / <span class="number">3</span>;</span><br><span class="line">            <span class="type">int</span> ei = di * <span class="number">3</span> + <span class="number">3</span>;</span><br><span class="line">            <span class="type">int</span> ej = dj * <span class="number">3</span> + <span class="number">3</span>;</span><br><span class="line">            count = bitcount;</span><br><span class="line">            <span class="keyword">for</span> (ii = ei - <span class="number">3</span>; ii &lt; ei; ii++)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">for</span> (jj = ej - <span class="number">3</span>; jj &lt; ej; jj++)</span><br><span class="line">                &#123;</span><br><span class="line">                    <span class="keyword">if</span> (ii == i &amp;&amp; jj == j) <span class="keyword">continue</span>;</span><br><span class="line">                    <span class="keyword">if</span> (buf[ii][jj] == val)</span><br><span class="line">                    &#123;</span><br><span class="line">                        <span class="keyword">if</span> (--count == <span class="number">0</span>)</span><br><span class="line">                        &#123;</span><br><span class="line">                            <span class="comment">// 长度n数组重复至少n次</span></span><br><span class="line">                            <span class="type">int</span> empty = <span class="number">1</span>;</span><br><span class="line">                            <span class="keyword">for</span> (iii = di * <span class="number">3</span>; iii &lt; ei; iii++)</span><br><span class="line">                            &#123;</span><br><span class="line">                                <span class="keyword">for</span> (jjj = dj * <span class="number">3</span>; jjj &lt; ej; jjj++)</span><br><span class="line">                                &#123;</span><br><span class="line">                                    <span class="keyword">if</span> (buf[iii][jjj] &gt; <span class="number">0</span> &amp;&amp; </span><br><span class="line">                                        buf[iii][jjj] != val &amp;&amp; </span><br><span class="line">                                        (buf[iii][jjj] &amp; val))</span><br><span class="line">                                    &#123;</span><br><span class="line">                                        buf[iii][jjj] &amp;= ~val;</span><br><span class="line">                                        empty = <span class="number">0</span>;</span><br><span class="line">                                    &#125;</span><br><span class="line">                                &#125;</span><br><span class="line">                            &#125;</span><br><span class="line">                            <span class="keyword">if</span> (empty)</span><br><span class="line">                            &#123;</span><br><span class="line">                                <span class="comment">// 双重循环，退出前需要先破坏外层循环</span></span><br><span class="line">                                ii = ei;</span><br><span class="line">                                <span class="keyword">break</span>;</span><br><span class="line">                            &#125;</span><br><span class="line">                            <span class="keyword">else</span> <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">static</span> <span class="type">int</span> <span class="title function_">sd_decode</span><span class="params">(<span class="type">int</span> buf[<span class="number">9</span>][<span class="number">9</span>])</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span> (sd_r0(buf)) <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">if</span> (sd_r1(buf)) <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    <span class="comment">// 新增规则</span></span><br><span class="line">    <span class="keyword">if</span> (sd_r2(buf)) <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// some processes</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>好了再运行一下，额~ 数独已经被全部解出来了。</p>
+<table style="width:450px;height:450px;">
+    <tr><td>1</td><td>4</td><td>6</td><td>9</td><td>7</td><td>3</td><td>5</td><td>8</td><td>2</td></tr>
+    <tr><td>7</td><td>2</td><td>3</td><td>4</td><td>5</td><td>8</td><td>9</td><td>6</td><td>1</td></tr>
+    <tr><td>9</td><td>5</td><td>8</td><td>6</td><td>1</td><td>2</td><td>4</td><td>7</td><td>3</td></tr>
+    <tr><td>3</td><td>7</td><td>5</td><td>1</td><td>2</td><td>6</td><td>8</td><td>4</td><td>9</td></tr>
+    <tr><td>8</td><td>9</td><td>2</td><td>5</td><td>3</td><td>4</td><td>7</td><td>1</td><td>6</td></tr>
+    <tr><td>6</td><td>1</td><td>4</td><td>7</td><td>8</td><td>9</td><td>2</td><td>3</td><td>5</td></tr>
+    <tr><td>4</td><td>6</td><td>7</td><td>2</td><td>9</td><td>1</td><td>3</td><td>5</td><td>8</td></tr>
+    <tr><td>2</td><td>8</td><td>1</td><td>3</td><td>4</td><td>5</td><td>6</td><td>9</td><td>7</td></tr>
+    <tr><td>5</td><td>3</td><td>9</td><td>8</td><td>6</td><td>7</td><td>1</td><td>2</td><td>4</td></tr>
+</table>
+<p>事情到此好像已经可以告一段落了吧</p>
+<h5 id="穷寇莫追">穷寇莫追</h5>
+<p>后来又到网上找了几个同样简单的数独，有的能解，有的依然不能。然后有补充了几个简单规则（难的规则太伤脑筋了，没时间和精力），陆续又能多解一些，完整的源码，可到对应代码仓库<sup class="footnote-ref"><a href="#fn3" id="fnref3">[3]</a></sup>中查看。</p>
+<p>在扩充的规则中，有的作用相互交叉，互为特例，还有一些实现，使用到了一些二进制比特控制的技巧，来完成分解或任意组合。</p>
+<p>在资料翻阅中也渐渐发现一些理论研究和文化圈子的迹象，纯属路过，没有班门弄斧的意思，哈哈。</p>
+<p>适而可止，寥寥几笔，这事就告一段落了。</p>
+<hr class="footnotes-sep">
+<section class="footnotes">
+<ol class="footnotes-list">
+<li id="fn1" class="footnote-item"><p>虎扑 <a target="_blank" rel="noopener" href="https://www.hupu.com/">https://www.hupu.com/</a> <a href="#fnref1" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn2" class="footnote-item"><p>GCC提供的其他内置功能 <a target="_blank" rel="noopener" href="https://gcc.gnu.org/onlinedocs/gcc/Other-Builtins.html">https://gcc.gnu.org/onlinedocs/gcc/Other-Builtins.html</a> <a href="#fnref2" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn3" class="footnote-item"><p>简单解数独代码片段 <a target="_blank" rel="noopener" href="https://github.com/nuyuiq/drawers/tree/master/snippet/sudoku">https://github.com/nuyuiq/drawers/tree/master/snippet/sudoku</a> <a href="#fnref3" class="footnote-backref">↩︎</a></p>
+</li>
+</ol>
+</section>
+
+        </div>
+
+        
+        <section class="post-tags">
+            <div>
+                
+                    <span>标签:</span>
+                    <span class="tag">
+                        
+                            <a href="/blog/tags/%E6%95%B0%E7%8B%AC/"># 数独</a>
+                        
+                            <a href="/blog/tags/%E6%AF%94%E7%89%B9%E8%BF%90%E7%AE%97/"># 比特运算</a>
+                        
+                            <a href="/blog/tags/%E4%BB%A3%E7%A0%81%E7%89%87%E6%AE%B5/"># 代码片段</a>
+                        
+                            
+                    </span>
+                
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">后退</a>
+                <span>· </span>
+                <a href="/blog/">主页</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+            
+                <a class="next" rel="next" href="/blog/2023/03/29/zero/">博客搭建记录</a>
+            
+        </section>
+
+
+    </article>
+</div>
+
+            </div>
+            <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© nuyuiq | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+
+    </div>
+</body>
+
+</html>
